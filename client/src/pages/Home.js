@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import InputGroup from "../compts/InputGroup";
-import RowDetails   from "../compts/RowDetails";
-import axios from "axios";
-export default function Home() {
+import RowDetails from "../compts/RowDetails";
+import axios from 'axios'
+import { set } from 'mongoose';
 
-  
+ export default function Home() {
+  const [users, setUsers] = useState([])
+  useEffect(() => {
+
+     axios.get("/api/users")
+    .then((res)=>{setUsers(res.data);})
+  },[]);
 
   return (
     <body>
@@ -34,7 +40,12 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              <RowDetails />
+              {
+                users.map(({Email,Lastname,Firstname,Age,_id})=>{
+                  <RowDetails Email={Email}  Lastname={Lastname}   Firstname={Firstname}   Age={Age}   Id={_id}  />
+                })
+              }
+              
             </tbody>
           </table>
         </div>

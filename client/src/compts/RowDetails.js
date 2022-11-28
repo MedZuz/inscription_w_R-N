@@ -1,12 +1,12 @@
 import React from 'react'
 
-function RowDetails() {
+function RowDetails({Email,Lastname,Firstname,Age,Id}) {
   return (
     <tr>
-    <th>mansouri@live.fr</th>
-    <td>mansouri</td>
-    <td>youssef</td>
-    <td>29</td>
+    <th>{Email}</th>
+    <td>{Lastname}</td>
+    <td>{Firstname}</td>
+    <td>{Age}</td>
     <td className="gap__actions">
       <span className="badge bg-info">
         <a href="/id" className="text-white">
@@ -17,7 +17,7 @@ function RowDetails() {
       <span className="badge bg-danger" onClick="">
         <i className="fas fa-trash-alt"></i>
       </span>
-    </td>
+    </td> 
   </tr>  )
 
 
