@@ -22,5 +22,4 @@ function RowDetails({Email,Lastname,Firstname,Age,Id}) {
 
 
 }
-
-export default RowDetails
+ export default RowDetails
